@@ -1,0 +1,87 @@
+$def with (title, res)
+
+<!doctipe html>
+<html>
+    <head>
+        <title>$:title</title>
+        <meta name="title" lang="hu" content="$:title" />
+        <meta name="description" lang="hu" content="python web programozás, online movie portal, tutorial demo" />
+        <meta name="keywords" lang="hu" content="python, web.py, tempita, bijou, css" />
+        <link rel="stylesheet" types="text/css" href="/static/css/bijou.css" media="screen" >
+
+        <link rel="stylesheet" types="text/css" href="static/css/bijou.css" media="screen" >
+        <link rel="stylesheet" types="text/css" href="static/css/imghw.css" media="screen" >
+        <style type='text/css'>
+            body{margin-top:60px; background:#f8f8f8;}
+            .main{border:1px solid #d6d6d6;padding:10px;}
+            .navbar h4{color:white;font-weight:200}
+            .navbar h5{color:white;text-align:center;}
+            .banner{text-align:left;padding:10px 0;}
+            .back{background:#fff;}
+            .light{background:#ccc;'
+                   color:#333;}
+            .dark{background:#333;color:#e2c934;}
+            .img{display:block;}
+            .table td{text-align:justify;vertical-align:top;}
+            .imghvr-flip-diag-1{width:180px;height:253px;font-family: 'Open Sans', sans-serif;}
+            .imghvr-flip-diag-1 img{height:100%;width:100%;}
+            .imghvr-flip-diag-1 #pn{font-size:18px; color:darkred}
+            .imghvr-flip-diag-1 span{line-height:200%;font-family: 'Open Sans', sans-serif;font-weight:600; padding:3p!important;font-size:14px;}
+            .imghvr-flip-diag-1 p{font-size:12px;letter-spacing:-0.5px;}.imghvr-flip-diag-1 #descr{display:none;}
+            .imghvr-flip-diag-1 #rejting{font-family: 'Open Sans', sans-serif;font-weight:600; font-size:10px;}
+            .imghvr-flip-diag-1 h3{font-size:18px; font-weight:600; line-height:100%;}
+            .imghvr-flip-diag-1 .fa-clock-o{opacity:0.7;}
+            .imghvr-flip-diag-1 #sci0 img{height:24px; width:24px}
+
+        </style>
+    </head>
+    <body>
+        <div class='navbar fixed'>
+            <div class='container'>
+                <h4 class='pull-left'>$title</h4>
+                <ul class='pull-right'>
+                    <li><a href='https://github.com/part-mozi/movie-portal/tree/master/04-base-from-slite3' title='Az oldal forráskódja' target="blank">Github</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class='container main back'>
+            <!-- Detail block -->
+            <div class='row'><center>
+                <div class='span twelve frame'>
+                    $for r in res:
+                    <figure class='imghvr-flip-diag-1'>
+                        <img src='static/img/cover/$r["film_nr"]-cover.jpg'>
+                        <figcaption><h3>$r["m_title"]</h3>
+                            <hr>
+                            <p><i class="fa fa-clock-o"></i> $r["time"] | ($r["year"]) | $r["quality"]</p>
+                            <p id="descr">
+                                <hr>
+                                $for i in range(len(r['catId'].split(","))):
+                                    $if i != len(r['catId'].split(","))-1:
+                                        <span id="act0">$r['catId'].split(",")[i]</span>
+                                    $else:
+                                        <br><span id="sci0">$r['catId'].split(",")[i]</span>
+                                <hr>
+                                <span id="rejting">IMDb $r["imdb_p"]/10</span>
+                                <hr>
+                                <span id="sci0"><img src='static/img/$r["audio"]f.png'> 
+                                $for i in range(len(r['srt'].split(","))):
+                                    <img src='static/img/$r["srt"].split(",")[i]f.png'>
+                                </span>
+                                <br />
+                                <h3 id="pn">Megnézem most</h3>
+                            </p>
+                        </figcaption>
+                        <a href="/f/$r["film_nr"]"></a>
+                    </figure>
+                </div></center>
+            </div> <!-- End of detail block -->
+        </div> <!-- End of container main -->
+        <br />
+        <div class='navbar'>
+            <div class='container'>
+                <h5 class='grid'>Ez az oldal a "Hogyan írjunk portált python nyeven" tutorial demója. Az oldalon keresztül elérhető, openload.co szolgáltatónál tárolt audiovizuális tartalmak jogdíjai a filmeket és egyéb audiovizuális tartalmat szerverein tároló szolgáltatót terheli! </h5>
+            </div>
+        </div>
+    </body>
+</html>
