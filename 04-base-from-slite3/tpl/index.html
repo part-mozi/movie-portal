@@ -8,15 +8,14 @@ $def with (title, res)
         <meta name="description" lang="hu" content="python web programozás, online movie portal, tutorial demo" />
         <meta name="keywords" lang="hu" content="python, web.py, tempita, bijou, css" />
         <link rel="stylesheet" types="text/css" href="/static/css/bijou.css" media="screen" >
-
-        <link rel="stylesheet" types="text/css" href="static/css/bijou.css" media="screen" >
-        <link rel="stylesheet" types="text/css" href="static/css/imghw.css" media="screen" >
+        <link rel="stylesheet" types="text/css" href="/static/css/imghw.css" media="screen" >
         <style type='text/css'>
             body{margin-top:60px; background:#f8f8f8;}
             .main{border:1px solid #d6d6d6;padding:10px;}
             .navbar h4{color:white;font-weight:200}
             .navbar h5{color:white;text-align:center;}
             .banner{text-align:left;padding:10px 0;}
+            .fixed {z-index:1030;}
             .back{background:#fff;}
             .light{background:#ccc;'
                    color:#333;}
@@ -46,7 +45,8 @@ $def with (title, res)
         </div>
         <div class='container main back'>
             <!-- Detail block -->
-            <div class='row'><center>
+            <center>
+            <div class='row'>
                 <div class='span twelve frame'>
                     $for r in res:
                     <figure class='imghvr-flip-diag-1'>
@@ -74,8 +74,9 @@ $def with (title, res)
                         </figcaption>
                         <a href="/f/$r["film_nr"]"></a>
                     </figure>
-                </div></center>
+                </div>
             </div> <!-- End of detail block -->
+            </center>
         </div> <!-- End of container main -->
         <br />
         <div class='navbar'>
