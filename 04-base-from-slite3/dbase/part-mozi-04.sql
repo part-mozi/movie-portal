@@ -22,7 +22,7 @@ INSERT INTO movie VALUES('0762703', '09KR002', 'Szomjúság', 'Bakjwi', '2h13min
 INSERT INTO movie VALUES('3479208', '14KR002', 'A végzetes találkozás', 'Yeok-rin', '2h15min', 'Akció,Dráma', 2014, 'HD', 6.9, 'fDppBukzgmc', 'kr', 'hu,gb', 1);
 INSERT INTO movie VALUES('1846675', '10KR001', 'Natali', 'Na-tal-li', '1h30min', 'Misztikus,Romantikus', 2010, 'DVDRip', 4.6, 'T0Yj8tYpBz0', 'kr', 'hu,gb', 1);
 INSERT INTO movie VALUES('6589464', '17KR001', 'A börtön', 'Peurizeun', '2h05min', 'Akció,Krimi', 2017, 'HD', 6.5, 'oCwsdJrlw9s','kr','hu', 1);
-INSERT INTO movie VALUES('3054798', '16KR002', 'Emlékek a kardról', 'Hyeomnyeo: Kar-ui gi-eok','2h', 'Akció,Dráma,Történelmi', 2015, 'HD', 6.3, 'G-XhnLEa9tY', 'kr', 'hu,gb', 1);
+INSERT INTO movie VALUES('3054798', '16KR002', 'Emlékek a kardról', 'Hyeomnyeo: Kar-ui gi-eok','2h', 'Akció,Dráma,Történelmi', 2016, 'HD', 6.3, 'G-XhnLEa9tY', 'kr', 'hu,gb', 1);
 INSERT INTO movie VALUES('0451094', '05KR001', 'A bosszú asszonya', 'Chinjeolhan geumjassi', '1h55min', 'Krimi,Dráma,Thriller', 2005, 'HD', 7.6, 'JfrBdXj_mac', 'kr', 'hu,gb', 1);
 INSERT INTO movie VALUES('6273736', '16KR003', 'Eltűnt idő: Egy fiú aki visszatért', 'Garyeojin shigan', '2h10min', 'Misztikus', 2016, 'HD', 7.3, 'N8wrPuzAJ5Q', 'kr', 'hu,gb', 1);
 INSERT INTO movie VALUES('1153040', '09KR001', 'Szökőár', 'Haeundae', '2h', 'Akció,Vígjáték,Dráma', 2009, 'HD', 5.7, 'Gob8JjYxW6M', 'kr', 'hu,gb', 1);

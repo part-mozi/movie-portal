@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import web, sqlite3
+import web
 
 urls = ('/', 'index',
         '/f/(.*)', 'film')
