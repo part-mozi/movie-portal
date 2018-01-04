@@ -11,7 +11,7 @@ render = web.template.render('tpl/')
 
 # Application
 app = web.application(urls, globals())
-db  = web.database(dbn="sqlite", db='dbase/part-mozi-04.sqlite3')
+db  = web.database(dbn="sqlite", db='../database/part-mozi-04.sqlite3')
 
 
 class index:
