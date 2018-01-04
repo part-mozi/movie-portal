@@ -1,0 +1,120 @@
+$def with (res, links)
+<html>
+    <head>
+        <title>$res['m_title']</title>
+        <meta name="title" lang="hu" content="" />
+        <meta name="description" lang="hu" content="python web programozás, online movie portal, tutorial demo" />
+        <meta name="keywords" lang="hu" content="python, web.py, tempita, bijou, css, $res['m_title'], $res['o_title'] " />
+        <link rel="stylesheet" types="text/css" href="/static/css/bijou.css" media="screen" >
+        <script type="text/javascript" src="/static/js/ajax.js"></script>
+        <script type="text/javascript">
+        function myFunc(elem) {
+            minAjax({
+                url:"/",
+                type:"POST",
+                data: { episode:elem.id },
+                debugLog: true,
+                success: function(data) {
+                    document.getElementById('oload').src = data;
+                },
+
+            });
+        }
+        </script>
+
+        <style type='text/css'>
+            body{margin-top:60px; background:#f8f8f8;}
+            .main{border:1px solid #d6d6d6;padding:10px;}
+            .navbar h4{color:white;font-weight:200}
+            .navbar h5{color:white;text-align:center;}
+            .banner{text-align:left;padding:10px 0;}
+            .back{background:#fff;}
+            .light{background:#ccc;'
+                   color:#333;}
+            .dark{background:#333;color:#e2c934;}
+            .img{display:block;}
+            .table td{text-align:justify;vertical-align:top;}
+            .ep{float:left; width:40px;height:30px;text-align:center;vertical-align: middle;background-image:url('/static/img/ep.png'); cursor: pointer;color:d2f919;font-weight: bold;}
+            .ep:hover{color:#006400;}
+            .ep1{float:left;text-align:left;vertical-align: middle; margin-right: 20px;}
+            .ep2{float:right;}
+        </style>
+    </head>
+    <body onload="myFunc(this, id='1')">
+        <div class='navbar fixed'>
+            <div class='container'>
+                <h4 class='pull-left'>Sorozat címe: $res['m_title']</h4>
+                <ul class='pull-right'>
+                    <li><a href='https://twitter.com/part_mozi' title='Twitter :: part-mozi' target="blank"><img src="/static/img/twitter.png" /></a></li>
+                    <li><a href='https://github.com/part-mozi/movie-portal/tree/master/05-base-serial-with-episodes-one-page' title='Az oldal forráskódja' target="blank"><img src="/static/img/github.png" /></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class='container main back'>
+            <!-- Embed video block -->
+            <div class='banner row'>
+                <div class='span twelve'>
+                    <iframe id="oload" src="about:blank" allowfullscreen="true"
+                        webkitallowfullscreen="true" mozallowfullscreen="true" height="640" width="100%"
+                        scrolling="no" frameborder="0">
+                    </iframe>
+                </div>
+            </div> <!-- End of embed block -->
+            <!-- Detail block -->
+            <div class='row'>
+                <div class='ep2'>
+                    <div class='ep1'><b>A sorozat részek:</b></div>
+                    $for i in links:
+                        <div class='ep' onclick="myFunc(this)" id ="$i['episode']" title="$res['m_title'] :: $i['episode'] . rész">$i['episode']</div>
+                    </div>
+                </div>
+            <div class='row'>
+                <div class='span twelve frame'>
+                    <div class='span two dark'>
+                        <img src="/static/img/cover/$res['film_nr']-cover.jpg" />
+                    </div>
+                    <div class='span ten light'>
+                        <table class='table table-stripped'>
+                            <tbody>
+                                <tr>
+                                    <td>Sorozat&nbsp;magyar&nbsp;címe</td>
+                                    <td>$res['m_title']</td>
+                                </tr>
+                                <tr>
+                                    <td>Sorozat eredeti címe</td>
+                                    <td>$res['o_title']</td>
+                                </tr>
+                                <tr>
+                                    <td>Szinkron</td>
+                                    <td><img src="/static/img/$res['audio']f.png" title="kóreai"/></td>
+                                </tr>
+                                <tr>
+                                    <td>Feliratok</td>
+                                    <td>
+                                        $for i in range(len(res['srt'].split(","))):
+                                            <img src='/static/img/$res["srt"].split(",")[i]f.png'>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Készítés éve</td>
+                                    <td>$res['year']</td>
+                                </tr>
+                                <tr>
+                                    <td>Rövid leírás</td>
+                                    <td>$res['desc']</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div> <!-- End of detail block -->
+        </div> <!-- End of container main -->
+        <br />
+        <div class='navbar'>
+            <div class='container'>
+                <h5 class='grid'>Ez az oldal a "Hogyan írjunk portált python nyeven" tutorial demója. Az oldalon keresztül elérhető, openload.co szolgáltatónál tárolt audiovizuális tartalmak jogdíjai a filmeket és egyéb audiovizuális tartalmat szerverein tároló szolgáltatót terheli! </h5>
+            </div>
+        </div>
+    </body>
+</html>

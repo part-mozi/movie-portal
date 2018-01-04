@@ -1,0 +1,2 @@
+INSERT INTO movie VALUES('3501416', '15KR008', 'A bérgyilkosság', 'Amsal', '2h20min', 'Akció,Dráma,Thriller', 2015, 'DVD', 7.3, 'vuLffAVWkXQ', 'kr', 'hu,gb', 1);
+INSERT INTO movie_detail VALUES('15KR008', 'Mesterlövészekből, zsoldosokból és kettős ügynökből álló csapat lázadó azt tervezi, hogy rajtaüt a hadsereg parancsnokán a japánok által megszállt Koreában, azonban az egyetlen, aki véghez tudná vinni a merényletet, börtönben ül. A lázadók megszöktetik őt a fogságból, azonban áruló van a soraik között...');
